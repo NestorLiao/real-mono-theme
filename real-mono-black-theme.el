@@ -1,2 +1,2 @@
-(require 'real-mon-themes)
-(real-mono-themes--define-theme black)
+(require 'real-mono-themes)
+(real-mono-themes--define-theme dark)

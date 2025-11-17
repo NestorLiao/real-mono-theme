@@ -1,2 +1,2 @@
 (require 'real-mono-themes)
-(real-mono-themes--define-theme oldfasion)
+(real-mono-themes--define-theme old)
