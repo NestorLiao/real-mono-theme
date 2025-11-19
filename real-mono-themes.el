@@ -4,7 +4,7 @@
 
 ;; Author: Qingsong Liao <llqingsong@qq.com>
 ;; Maintainer: Qingsong Liao <llqingsong@qq.com>
-;; URL: https://github.com/qingsongliao/real-mono-themes
+;; URL: https://github.com/NestorLiao/real-mono-themes
 ;; Created: 15th Nov 2025
 ;; Version: 1.0.0
 ;; Keywords: faces

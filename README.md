@@ -25,74 +25,24 @@ pictures's font list: bookerly, ubuntumono, firacode, terminess, bookerly blod l
 - (show-paren-mode -1), build your own eye insight
 - (window-divider-mode  -1), too, build your memory
 - (display-line-numbers-mode -1), too, build your own eye insight
-- font switch, switch between proportion font and mono font
-``` lisp
-(defvar my-alternate-font "-DAMA-UbuntuMono Nerd Font-regular-normal-normal-*-13-*-*-*-m-0-iso10646-1")
-(defvar my-default-font "bookerly")
-(defvar fontfont 1)
-(defun my-toggle-font ()
-  "Toggle between UbuntuMono and bookerly fonts."
-  (interactive)
-  (if (= fontfont 1)
-      (progn (set-face-attribute 'default nil :font my-default-font :height 160) (setq fontfont 0))
-    (progn (set-face-attribute 'default nil :font my-alternate-font :height 210) (setq fontfont 1))))
-```
+- font switcher/hide fringe by mode... etc.
 
-- fringe specific mode auto hide
-``` lisp
-(defun my-set-fringe-face ()
-  "auto hide fringe face depending on major mode."
-  (if (derived-mode-p '(occur-mode gud-mode))
-      (set-face-attribute 'fringe nil
-                          :background (face-attribute 'default :background)
-                          :foreground (face-attribute 'default :foreground))
-    (set-face-attribute 'fringe nil
-                        :background (face-attribute 'default :background)
-                        :foreground (face-attribute 'default :background))))
-(add-hook 'after-change-major-mode-hook #'my-set-fringe-face)
-
-- elisp for toggling paperlike-hd to swtich between read and watch.
-``` elisp
-(defvar monitor-state 0
-  "Current monitor state, either 0 for read or  1 for watch.")
-(defun monitor ()
-  "swtich monitor from read mode to watch mode"
-  (interactive)
-  (let((monitorpath "-i2c  /dev/i2c-4")
-       (monitorcli "paperlike-cli ")
-       (monitorarg '(" -contrast " " -speed " " -mode " " -clear"))
-       (mode-state '(("9" "5" "1")  ("2" "1" "3"))))
-    (split-window-below)
-    (other-window 1)
-    (switch-to-buffer "*Shell Command Output*")
-    (split-window-below)
-    (other-window 1)
-    (switch-to-buffer "*Async Shell Command*")
-    (progn
-      (dotimes (number 3)
-        (shell-command (concat
-                        monitorcli
-                        monitorpath
-                        (car (nthcdr number monitorarg))
-                        (car (nthcdr number (car (nthcdr monitor-state  mode-state)))))
-                       ))
-      (sleep-for 1))
-    (setq monitor-state  (if (= 0 monitor-state) 1 0 ))
-    (sleep-for 1.5)
-    (sleep-for 0.5)
-    (async-shell-command (concat monitorcli monitorpath " -clear"))
-    (let ((async (get-buffer-window "*Async Shell Command*"))
-          (shell (get-buffer-window "*Shell Command Output*")))
-      (when async (delete-window async))
-      (when shell  (delete-window shell)))
-    (sleep-for 0.5)
-    (kill-buffer "*Async Shell Command*")
-    (kill-buffer "*Shell Command Output*")
-    (donothing)))
-```
 
 Installation
 ============
+
+Use package
+-----------
+If you have use-package setup on your system loading real-mono-themes is as simple as:
+
+```lisp
+(use-package real-mono-themes
+  :config
+  ;; (load-theme 'real-mono-dark  t)
+  ;; (load-theme 'real-mono-girl t)
+  ;; (load-theme 'real-mono-old t)
+  (load-theme 'real-mono-eink t))
+```
 
 Manual installation
 -------------------
@@ -104,16 +54,15 @@ You can set your paths by adding these lines to your <code>.emacs.d</code> or <c
 ;; Put the main theme file real-mono-themes.el in your load path
 (add-to-list 'load-path "~/.emacs.d/elisp")
 
-;; Put the induvidual theme files real-mono-{black, white, etc.}-theme.el in your theme load path
+;; Put the induvidual theme files real-mono-{dark, eink, etc.}-theme.el in your theme load path
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 ```
 
-You should now be able to load real-mono-themes with <code>M-x load-theme RET real-mono-{black, white, etc.} RET</code>!
-
+You should now be able to load real-mono-themes with <code>M-x load-theme RET real-mono-{dark, eink, etc.} RET</code>!
 
 Thanks For
 -------------------
-- minimal-emacs, a easy use config which bring me into emacs world.
+- minimal-emacs, a easy to use config that bring me into emacs world.
 - eink-theme, without it I will never try emacs with eink screen.
 - paperlike-go, without it I will never try sway/linux with eink screen.
 - almost-mono-theme, because it's "almost"-mono not "real"-mono, so I creat this real-mono-theme.
