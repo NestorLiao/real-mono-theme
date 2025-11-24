@@ -452,7 +452,6 @@
       (window-divider-first-pixel ())
       ))))
 
-
 (defun real-mono-themes--variant-name (variant)
   "Create symbol for color theme variant VARIANT."
   (intern (format "real-mono-%s" (symbol-name variant))))
@@ -466,7 +465,7 @@
        (put ',name 'theme-immediate t)
        (real-mono-themes--variant-with-colors
         ',variant
-        (apply 'custom-theme-set-faces ',name
+        (apply #'custom-theme-set-faces ',name
                (real-mono-themes--faces-spec)))
        (provide-theme ',name))))
 
