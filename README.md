@@ -11,22 +11,22 @@ A collection of real monochrome emacs themes in a couple of variants.
 ![real-mono-old](https://raw.githubusercontent.com/NestorLiao/real-mono-themes/main/image/real-mono-old.png)
 ![real-mono-sea](https://raw.githubusercontent.com/NestorLiao/real-mono-themes/main/image/real-mono-sea.png)
 
-pictures's font list: bookerly, ubuntumono, firacode, terminess, bookerly blod ltalic.
+Pictures's font list: Bookerly, UbuntuMono, FiraCode, Terminess, Bookerly blod ltalic.
 
 ## Features:
-1. **Not Greyscale**, no blur anymore, it's much better to use eink screen for pure black and white!
-2. **Easy** to customize, can set the only two colors by config the default face's foreground/background color.
-3. **Distraction-free**, no extra info-overwhelming causing by font-lock, only few font diversity in magit/dired etc for better function recognize.
-4. **Full**, configed 370+ faces, I didn't see any monochrome theme can reach that much, as my daily driver, it's good enough.
+1. **Not Greyscale**, no blur eyesight anymore, pure black/white and  pure soul!
+2. **Easy to customize**, only need to change default face's foreground/background color.
+3. **Distraction-free**, no info-overwhelming causing by font-lock, font diversity only in  magit/dired/diff etc for better function recognize.
+4. **Full**, configed 410+ faces, I didn't see any monochrome theme can reach that much, as my daily driver, it's good enough.
 
 ## Tips for mono:
-- (global-hide-mode-line-mode 1), build your own brain memory
-- (no-emoji 1), alter emacs to be "text editor" instead of discord
-- (show-paren-mode -1), build your own eye insight
-- (window-divider-mode  -1), too, build your memory
-- (display-line-numbers-mode -1), too, build your own eye insight
+- (global-hide-mode-line-mode 1), build your *own* brain memory.
+- (window-divider-mode  -1), too, build your *own* brain memory.
+- (no-emoji 1), alter emacs to be "text editor" instead of reddit.
+- (show-paren-mode -1), build your *own* eye insight.
+- (display-line-numbers-mode -1), too, build your *own* eye insight.
 - font switcher/hide fringe by mode... etc.
-
+- setq hl-todo-keyword-faces
 
 Installation
 ============
@@ -60,9 +60,11 @@ You can set your paths by adding these lines to your <code>.emacs.d</code> or <c
 
 You should now be able to load real-mono-themes with <code>M-x load-theme RET real-mono-{dark, eink, etc.} RET</code>!
 
+If you hate eyecandy colors too and found color face this package missed or you think can add slant/weight/underline/box, etc(except colors) to faces for better identify, welcome to PR! Let's creat a two-color-mode for "Free emacs from the slave of colors".
+
 Thanks For
 -------------------
-- minimal-emacs, a easy to use config that bring me into emacs world.
+- minimal-emacs.d, a easy to use config that bring me into emacs world.
 - eink-theme, without it I will never try emacs with eink screen.
 - paperlike-go, without it I will never try sway/linux with eink screen.
 - almost-mono-theme, because it's "almost"-mono not "real"-mono, so I creat this real-mono-theme.
