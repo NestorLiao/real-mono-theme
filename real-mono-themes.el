@@ -8,7 +8,7 @@
 ;; Created: 15th Nov 2025
 ;; Version: 1.0.0
 ;; Keywords: faces
-;; Package-Requires: ((emacs "24"))
+;; Package-Requires: ((emacs "28.1"))
 
 ;; This file is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published
@@ -475,8 +475,7 @@
 (widget-single-line-field nil)
 (window-divider nil)
 (window-divider-first-pixel nil)
-(window-divider-last-pixel nil)
-      ))))
+(window-divider-last-pixel nil)))))
 
 (defun real-mono-themes--variant-name (variant)
   "Create symbol for color theme variant VARIANT."
